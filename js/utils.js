@@ -4,7 +4,7 @@ $(document).ready(function(){
 
 function validaCedula()
 {
-    limpiaFormulario();
+    
     var ced = $("#cedula").val();
     $.ajax({
         // url:"https://localhost:7213/Busqueda?cedula="+ced,
@@ -45,20 +45,95 @@ function limpiaFormulario()
 
 function validaInfo()
 {
-    var listo = false;
+    var listo = 0;
+    var company = $("#compania").val();
+    if(company.length == 0)
+    {
+        listo = listo + 1;
+        $("#eCompania").text("Nombre de compañia");
+        $("#compania").addClass("is-invalid");
+    }
+    else{
+        $("#eCompania").hide();
+        $("#compania").removeClass("is-invalid").addClass("is-valid");
+    }
+    var nombre = $("#contacto").val();
+    if(nombre.length == 0)
+    {
+        listo = listo + 1;
+        $("#eNombre").text("Nombre de la persona para contacto.");
+        $("#contacto").addClass("is-invalid");
+    }
+    else{
+        $("#eNombre").hide();
+        $("#contacto").removeClass("is-invalid").addClass("is-valid");
+    }
+    var titulo = $("#titulo").val();
+    if(titulo.length == 0)
+    {
+        listo = listo + 1;
+        $("#eTitulo").text("Titulo.");
+        $("#titulo").addClass("is-invalid");
+    }
+     else{
+        $("#eTitulo").hide();
+        $("#titulo").removeClass("is-invalid").addClass("is-valid");
+    }
+     var cedula = $("#cedula").val();
+    if(cedula.length == 0)
+    {
+        listo = listo + 1;
+        $("#eCedula").text("Titulo.");
+        $("#cedula").addClass("is-invalid");
+    }
+    else{
+        $("#eCedula").hide();
+        $("#cedula").removeClass("is-invalid").addClass("is-valid");
+    }
+    var correo = $("#correo").val();
+    if(correo.length == 0)
+    {
+        listo = listo + 1;
+        $("#eCorreo").text("Correo.");
+        $("#correo").addClass("is-invalid");
+    }
+    else{
+        $("#eCorreo").hide();
+        $("#cedcorreoula").removeClass("is-invalid").addClass("is-valid");
+    }
+    var telefono = $("#telefono").val();
+    if(telefono.length == 0)
+    {
+        listo = listo + 1;
+        $("#eTelefono").text("Telefono.");
+        $("#telefono").addClass("is-invalid");
+    }
+    else{
+        $("#eTelefono").hide();
+        $("#telefono").removeClass("is-invalid").addClass("is-valid");
+    }
     if(!$("#acepto").is(":checked"))
     {
+        listo = listo + 1;
+        $("#eTerminos").text("Terminos y Condiciones.");
         $("#acepto").addClass("is-invalid");
     }
     else
     {
         $("#acepto").removeClass("is-invalid").addClass("is-valid");
-        listo = true;
     }
-    if(listo)
+    if(listo==0)
     {
         guardaDatos();
     }
+    else{
+         var miModal = new bootstrap.Modal(document.getElementById('modalError'));
+            miModal.show();
+    }
+}
+function formulario()
+{
+    location.reload();
 }
 function guardaDatos()
 {
@@ -156,7 +231,7 @@ function llenaTabla()
         error: function(xhr,status,error)
         {
             console.error("Error:",error);
-            alert("No existe la cedula.");
+            alert("No hay datos");
         }
     })
 }

@@ -31,18 +31,22 @@
         <div class="mb-3" >
             <label for="compania" class="form-label">Nombre Compañia</label>
             <input type="text" class="form-control" id="compania" placeholder="Nombre de la compañia"></input>
+            <div class="invalid-feedback">No hay datos de compañia.</div>
         </div>
         <div class="mb-3">
             <label for="cedula" class="form-label">Cedula</label>
             <input type="text" onchange="validaCedula()" class="form-control" id="cedula" placeholder="Cedula"></input>
+            <div class="invalid-feedback">No hay datos de cedula.</div>
         </div>
         <div class="mb-3">
             <label for="contacto" class="form-label">Nombre de la persona para contacto</label>
             <input type="text" class="form-control" id="contacto" placeholder="Nombre de la persona para contacto"></input>
+            <div class="invalid-feedback">No hay datos para contacto.</div>
         </div>
         <div class="mb-3">
             <label for="titulo" class="form-label">Titulo</label>
             <input type="text" class="form-control" id="titulo"  placeholder="Titulo"></input>
+            <div class="invalid-feedback">No hay datos de titulo.</div>
         </div>
         <div class="mb-3">
             <label for="correo" class="form-label">Correo</label>
@@ -62,19 +66,24 @@
     <div class="invalid-feedback">
       Debes aceptar los términos para continuar.
     </div>
-  </div>
-        <div class="mb-3 input-group">
-            <button type="button" id="continuar" onclick="validaInfo()" class="btn btn-primary">Continuar</button>
+    <div class="mb-3 input-group center">
+            
         </div>
+    <div class="mb-3 input-group">
+            <button type="button" id="continuar" onclick="validaInfo()" class="btn btn-primary center">Continuar</button>
+        </div>
+  </div>
     </form>
     </div>
     </div>
     </div>
+
+
 <form id="frmTable">
     <h1 class="text-primary">Registros</h3>
 
     <table class="table table-striped table-hover">
-        <thead class="table-dark">
+        <thead>
             <tr>
                 <th>Compañia</th>
                 <th>Cedula</th>
@@ -88,6 +97,14 @@
             
         </tbody>
     </table>
+     <div class="mb-3 input-group">
+            
+        </div>
+
+ <div class="mb-3 input-group">
+            <button type="button" id="continuar" onclick="formulario()" class="btn btn-primary">Aceptar</button>
+        </div>
+
 </form>
 
 
@@ -116,5 +133,28 @@
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="modalError" tabindex="-1" aria-labelledby="tituloModalE" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                
+                <div class="modal-header">
+                    <h5 class="modal-title" id="tituloModalE" class="text-danger">Error en el formulario</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+
+                <div class="modal-body">
+                    <p><span class="text-danger" id="eCompania"></span></p>
+                    <p><span class="text-danger"  id="eCedula"></span></p>
+                    <p><span class="text-danger"  id="eNombre"></span></p>
+                    <p><span class="text-danger"  id="eTitulo"></span></p>
+                    <p><span class="text-danger"  id="eCorreo"></span></p>
+                    <p><span class="text-danger"  id="eTelefono"></span></p>
+                    <p><span class="text-danger"  id="eTerminos"></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     </body>
 </html>
