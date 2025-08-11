@@ -1,5 +1,20 @@
 $(document).ready(function(){
     $("#frmTable").hide();
+    $("#frmTableCedulas").hide();
+
+$("#tbl-cedulas").on("click", "tr", function () {
+    
+    var cedula  = $(this).find("td:eq(0)").text();
+    var nombre   = $(this).find("td:eq(1)").text();
+    let titulo   = $(this).find("td:eq(2)").text();
+
+    $("#titulo").val(titulo);
+    $("#cedula").val(cedula);
+    $("#contacto").val(nombre);
+    $("#frmTableCedulas").fadeOut();
+    $("#frmParticipante").show();
+});
+
 });
 
 function validaCedula()
@@ -22,6 +37,22 @@ function validaCedula()
                     $("#titulo").val(data[0].titulo);
                     $("#contacto").val(nombre);
                 }
+                else{
+                    data.forEach(function(data){
+                    var nombre = data.nombre + " " + data.paterno +" "+ data.materno;
+                $("#tbl-cedulas").append(`
+                    <tr>
+                        <td>${data.cedula}</td>
+                        <td>${nombre}</td>
+                        <td>${data.titulo}</td>
+                    </tr>`
+                )});
+                $("#frmParticipante").fadeOut();
+                $("#frmTableCedulas").show();
+                }
+            }
+            else{
+
             }
                     },
         error: function(xhr,status,error)

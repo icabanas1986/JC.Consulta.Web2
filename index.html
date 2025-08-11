@@ -24,7 +24,7 @@
             <img src="https://www.excelsior.com.mx/media/styles/image800x600/public/pictures/2022/08/24/2810729.jpg" class="img-fluid h-100 w-100" style="object-fit: cover;" alt="Imagen izquierda">
         </div>
         <div class="col-md-6 d-flex align-items-center justify-content-center bg-light">
-        <form id="frmParticipante">
+        <form >
             <div class="mb-3">
                 <h1 class="text-primary">Registro para participantes.</h1>
             </div>
@@ -107,6 +107,22 @@
 
 </form>
 
+<form id="frmTableCedulas">
+    <h1 class="text-primary">Cedulas encontradas</h3>
+
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Cedula</th>
+                <th>Nombre</th>
+                <th>Titulo</th>
+            </tr>
+        </thead>
+        <tbody id="tbl-cedulas">
+            
+        </tbody>
+    </table>
+</form>
 
 <!--Modal-->
 <div class="modal fade" id="miModal" tabindex="-1" aria-labelledby="tituloModal" aria-hidden="true">
