@@ -8,7 +8,7 @@ function validaCedula()
     var ced = $("#cedula").val();
     $.ajax({
         // url:"https://localhost:7213/Busqueda?cedula="+ced,
-        url:"http://consulta.somee.com/busqueda?cedula="+ced,
+        url:"https://consulta.somee.com/busqueda?cedula="+ced,
         method:"GET",
         dataType: "json",
         success:function(data)
@@ -73,7 +73,7 @@ function guardaDatos()
 
     $.ajax({
         // url:"https://localhost:7213/Inserta",
-        url:"http://consulta.somee.com/Inserta",
+        url:"https://consulta.somee.com/Inserta",
         method:"POST",
         contentType: "application/json",
         data:JSON.stringify(datos),
@@ -135,7 +135,7 @@ function llenaTabla()
     $('#tbl-participantes').empty();
     $.ajax({
         // url:"https://localhost:7213/Busqueda/GetAll",
-        url:"http://consulta.somee.com/busqueda/GetAll",
+        url:"https://consulta.somee.com/busqueda/GetAll",
         method:"GET",
         dataType: "json",
         success:function(data)
