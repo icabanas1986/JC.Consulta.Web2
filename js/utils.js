@@ -129,8 +129,17 @@ function validaInfo()
         $("#correo").addClass("is-invalid");
     }
     else{
-        $("#eCorreo").hide();
-        $("#cedcorreoula").removeClass("is-invalid").addClass("is-valid");
+        if(validaCorreo())
+        {
+            $("#eCorreo").hide();
+            $("#cedcorreoula").removeClass("is-invalid").addClass("is-valid");
+        }
+        else
+        {
+            listo = listo + 1;
+        $("#eCorreo").text("Correo.");
+        $("#correo").addClass("is-invalid");
+        }
     }
     var telefono = $("#telefono").val();
     if(telefono.length == 0)
@@ -211,7 +220,9 @@ function validaCorreo()
         valido = false;
     } else {
         $("#correo").removeClass("is-invalid").addClass("is-valid");
+        valido = true;
     }
+    return valido;
 }
 
 function soloNumeros()
